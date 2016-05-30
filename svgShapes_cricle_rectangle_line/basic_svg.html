@@ -1,0 +1,42 @@
+<!DOCKTYPE HTML>
+<html>
+    <head>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+    </head>
+    <body>
+        
+        <script>
+            // Basic SVG.
+            var canvas = d3.select("body")
+                            .append("svg")
+                            .style("border", "1px solid black")
+                            .attr("width", 500)
+                            .attr("height", 500);            
+                
+                
+            // A Circle 
+            var circle = canvas.append("circle")
+                            .attr("cx", 200)
+                            .attr("cy", 250)
+                            .attr("r", 50)
+                            .attr("fill", "red");
+            // A Rectangle
+            var rectangle = canvas.append("rect")
+                            .attr("width", 100)
+                            .attr("height", 50)
+                            .attr("x", 300)
+                            .attr("y", 225)
+                            .attr("fill", "blue");
+            
+            // A Line
+            var line = canvas.append("line")
+                            .attr("x1", 100)
+                            .attr("y1", 250)
+                            .attr("x2", 450)
+                            .attr("y2", 250)
+                            .attr("stroke", "green")
+                            .attr("stroke-width", "2px");
+                            
+        </script>
+    </body>
+</html>
