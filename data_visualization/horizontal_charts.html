@@ -1,0 +1,29 @@
+<!DOCKTYPE HTML>
+<html>
+    <head>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+    </head>
+    <body>
+        <script>
+            
+            //Data Collection.
+            
+            var dataArray = [50, 30, 70];
+            
+            // SVG Canvas.
+            var canvas = d3.select("body")
+                            .append("svg")
+                            .style("border", "1px solid black")
+                            .attr("width", 1000)
+                            .attr("height", 500);            
+            var bars = canvas.selectAll("rect")
+                            .data(dataArray)
+                            .enter()
+                                .append("rect")
+                                .attr("width", function(d){ return d*10;})
+                                .attr("height", 50)
+                                .attr("y", function(d, i){ return i*100})
+                       
+        </script>
+    </body>
+</html>
