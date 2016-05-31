@@ -1,0 +1,44 @@
+<!DOCKTYPE HTML>
+<html>
+    <head>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+    </head>
+    <body>
+        <script>
+
+            //Data Collection.
+
+            var dataArray = [50, 140, 190];
+
+            var width = 500;
+            var height = 500;
+            
+            // Sacle for height
+            var heightScale = d3.scale.linear()
+                               .domain([0, 290])
+                               .range([0, height]);
+                               
+            // Sacle for Color
+            var colorScale = d3.scale.linear()
+                               .domain([0, 190])
+                               .range(["red", "blue"]);
+            
+            // SVG Canvas.
+            var canvas = d3.select("body")
+                            .append("svg")
+                            .style("border", "1px solid black")
+                            .attr("width", width)
+                            .attr("height", height);
+            
+            var bars = canvas.selectAll("rect")
+                            .data(dataArray)
+                            .enter()
+                                .append("rect")
+                                .attr("width", 50)
+                                .attr("fill", function(d){return colorScale(d)})        // returns scaled color from red to blue.
+                                .attr("height", function(d){ return heightScale(d);})   // returns scaled height
+                                .attr("x", function(d, i){ return i*100})
+                                .attr("y", function(d, i){ return 500 - heightScale(d)}) // returns scaled y position
+        </script>
+    </body>
+</html>
